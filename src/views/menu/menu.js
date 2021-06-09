@@ -9,7 +9,31 @@ import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Modal from "react-modal";
 
+
+import { useSelector, useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+
+import MenuItem from '../../components/MenuItem'
+import AddOrder from '../../components/AddOrder'
+
+import actions from '../../actions/orderAction'
+
+
 function Menu() {
+
+  const menu = useSelector((state) => { return state.menu });
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    async function getMenu() {
+      const response = await fetch('http://localhost:8000/api/coffee');
+      const data = await response.json();
+      console.log('getMenu:', data);
+      dispatch(actions.getMenu(data.menu));
+    }
+
+    getMenu();
+  }, [dispatch]);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -45,7 +69,18 @@ function Menu() {
         <p id="number">0</p>
       </div>
       </div>
-    <h2 id="title-menu">Meny</h2>
+     
+
+      <h2 id="title-menu">Meny</h2>
+       
+        <ul className="menu-list">
+            { menu.map((menu1) => {
+                return <MenuItem task={ menu1.task } key={ menu1.id } />
+            }) }
+        </ul>
+      <AddOrder />
+  
+
     <div id="menu-items">
     <img id="add" src={add} alt="Lägg till produkt"/>
     <p>Kaffe 1</p>
@@ -60,15 +95,13 @@ function Menu() {
     <img id="add" src={add} alt="Lägg till produkt"/>
     <p>Kaffe 6</p>
     </div>
+
     </div>
+
     <Footer />
     </div>
   )
 }
 
-
-// fetch('http://localhost:8000/api/coffee')
-//   .then(response => response.json())
-//   .then(data => console.log(data));
 
 export default Menu
