@@ -1,3 +1,10 @@
+const getMenu = (menu) => {
+  return {
+      type:'FETCH_MENU',
+      payload: menu
+  }
+}
+
 const addOrder = (id) => {
   return {
     type: 'ADD_ORDER',
@@ -5,20 +12,20 @@ const addOrder = (id) => {
   }
 }
 
-const updateOrder = (id) => {
+const postOrder = (id) => {
   return {
-    type: 'ADD_ORDERS',
+    type: 'POST_ORDER',
     payload: id
   }
 }
-const getMenu = (menu) => {
-  return {
-      type:'FETCH_MENU',
-      payload:menu
-  }
 
-}
+// const getOrder = (orders) => {
+//   return {
+//       type: 'GET_ORDER',
+//       payload: orders
+//   }
+// }
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default { addOrder, getMenu, updateOrder }
+export default { getMenu, addOrder, postOrder }
 

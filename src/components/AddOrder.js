@@ -1,22 +1,17 @@
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import actions from '../actions/orderAction'
+import './AddOrder.css'
 
-function AddOrder() {
-    const [menu, setMenu] = useState('')
-    const dispatch = useDispatch()
+function AddOrder({ task }) {
 
-    function handleClick() {
-      dispatch(actions.addOrder(menu))
-    }
+  console.log('AddOrder:', task)
 
     return (
-        <section className="add-menu">
-            <input className="input-field" placeholder="Skriv in en menu" 
-            onKeyUp={ (event) => { setMenu(event.target.value) }} />
-            <button onClick={ handleClick }>Lägg till ny todo</button>
-        </section>
+      <div>
+        <li className="title-cart">{ task.task.title }......... </li>
+        <li className="price-cart">{ task.task.price } kr</li>
+        <i className="arrow up"></i><p>1</p><i className="arrow down"></i>
+        </div>
+       
     )
-}
-
-export default AddOrder
+  }
+  
+  export default AddOrder

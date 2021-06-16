@@ -22,9 +22,9 @@ function Profile({setNewName, setNewEmail}) {
   )
 }
 
-fetch('http://localhost:8000/api/order/johanna')
-  .then(response => response.json())
-  .then(data => console.log(data));
+// fetch('http://localhost:8000/api/order/johanna')
+//   .then(response => response.json())
+//   .then(data => console.log(data));
 
 export default Profile
 

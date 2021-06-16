@@ -1,4 +1,5 @@
 import './App.css'
+
 import {Switch, Route, BrowserRouter} from 'react-router-dom'
 
 import about from './views/about/about'

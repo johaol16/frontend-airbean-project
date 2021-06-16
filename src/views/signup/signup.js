@@ -1,11 +1,10 @@
 import './signup.css'
-
-import Header from '../../components/header'
 import logo from'../../assets/logo.png'
 
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
+import Header from '../../components/header'
 
 
 function SignUp() {

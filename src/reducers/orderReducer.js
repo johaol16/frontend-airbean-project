@@ -1,45 +1,62 @@
   const initState = {
     menu: [],
     orders:[]
+    // orderStatus: []
 }
 
-let id = 0
 export const orderReducer = (state = initState, action) => {
     switch (action.type) {
+        case 'FETCH_MENU': {
+            return {
+                ...state,
+                menu:action.payload
+            
+                }
+            }
         case 'ADD_ORDER':{
             return {
                 ...state,
-                menu: [
-                    ...state.menu, {
-                        id:id++,
+                orders: [
+                    ...state.orders, {
+                        id: state.orders + 1,
                         task: action.payload,
-                        done:false
+                        done: false
                     }
                 ]
             }
-
         }
-             case 'UPDATE_ORDER':
+        // case 'POST_ORDER':
+        //     return {
+        //         ...state,
+        //         orders: 
+        //         state.orders.map(order => {
+        //             if (order.id !== action.payload) {
+        //                 return order
+        //             }
+
+        //             return {
+        //                 ...order,
+        //                 done: !order.done
+        //             }
+        //         })
+              
+        //     }
+             case 'POST_ORDER':
             return {
                 ...state,
-                menu: state.orders.map(order => {
-                    if (order.id !== action.payload) {
-                        return order;
-                    }
-
-                    return {
-                        ...order,
-                        done: !order.done
-                    }
-                })
+                orderStatus: action.payload
             }
-        case 'FETCH_MENU': {
-return {
-    ...state,
-    menu:action.payload
+// case 'FETCH_ORDER': {
+//     return {
+//         ...state,
+//         orders: [
+//             ...state.orders, {
+//                 order: action.payload,
+//             }
+//         ]
+//     }
+// }
 
-    }
-}
 default:
 return state
 }

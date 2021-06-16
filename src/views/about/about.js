@@ -1,5 +1,6 @@
-import './about.css';
-import img from'../../assets/vd.png';
+import './about.css'
+import img from'../../assets/vd.png'
+
 import Header from '../../components/header'
 import Footer from '../../components/footer'
 
