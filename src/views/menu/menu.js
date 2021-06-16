@@ -1,7 +1,7 @@
 import './menu.css'
 import bag from'../../assets/bag.png'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import Modal from "react-modal"
 import { useSelector, useDispatch } from 'react-redux'
@@ -11,10 +11,12 @@ import Footer from '../../components/footer'
 import MenuItem from '../../components/MenuItem'
 import AddOrder from '../../components/AddOrder'
 import actions from '../../actions/orderAction'
+import { UserContext } from '../../App.js'
 
 
 function Menu() {
 
+  const username = useContext(UserContext)
   const menu = useSelector((state) => { return state.menu })
   const orders = useSelector((state) => { return state.orders })
 
@@ -44,7 +46,7 @@ function Menu() {
   function handlePay() {
 
     fetch('http://localhost:8000/api/order', {
-      body: JSON.stringify({ orders }),
+      body: JSON.stringify({ username: username, orders }),
       headers: {
           'Content-Type': 'application/json'
        },
@@ -53,7 +55,7 @@ function Menu() {
       .then((response) => response.json())
       .then(result => {
       console.log('Success:', result)
-      console.log('postOrder:', result)
+      console.log('postOrder:', orders)
 
       const status = {
         id: result.id,

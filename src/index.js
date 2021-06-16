@@ -6,7 +6,7 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reportWebVitals from './reportWebVitals'
 
-import App from './App'
+import {App} from './App'
 import orderReducer from './reducers/orderReducer'
 
 

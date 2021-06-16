@@ -19,13 +19,6 @@ const postOrder = (id) => {
   }
 }
 
-// const getOrder = (orders) => {
-//   return {
-//       type: 'GET_ORDER',
-//       payload: orders
-//   }
-// }
-
 // eslint-disable-next-line import/no-anonymous-default-export
 export default { getMenu, addOrder, postOrder }
 

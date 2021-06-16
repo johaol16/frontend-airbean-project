@@ -1,13 +1,15 @@
 import './signup.css'
 import logo from'../../assets/logo.png'
 
-import { useState } from 'react'
+import { useState, createContext } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import Header from '../../components/header'
 
+const UserContext = createContext(undefined)
 
-function SignUp() {
+
+function Signup({update}) {
   const [newName, setNewName] = useState('')
   const [newEmail, setNewEmail] = useState('')
 
@@ -36,6 +38,7 @@ function SignUp() {
       .then((response) => response.json())
       .then(result => {
       console.log('Success:', result)
+      update(newName)
       history.push("/profile")
    })
       .catch(error => {
@@ -72,4 +75,4 @@ function SignUp() {
 }
 
 
-export default SignUp
+export {Signup, UserContext}

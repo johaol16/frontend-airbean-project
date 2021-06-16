@@ -25,37 +25,11 @@ export const orderReducer = (state = initState, action) => {
                 ]
             }
         }
-        // case 'POST_ORDER':
-        //     return {
-        //         ...state,
-        //         orders: 
-        //         state.orders.map(order => {
-        //             if (order.id !== action.payload) {
-        //                 return order
-        //             }
-
-        //             return {
-        //                 ...order,
-        //                 done: !order.done
-        //             }
-        //         })
-              
-        //     }
              case 'POST_ORDER':
             return {
                 ...state,
                 orderStatus: action.payload
             }
-// case 'FETCH_ORDER': {
-//     return {
-//         ...state,
-//         orders: [
-//             ...state.orders, {
-//                 order: action.payload,
-//             }
-//         ]
-//     }
-// }
 
 default:
 return state
