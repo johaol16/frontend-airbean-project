@@ -6,6 +6,18 @@
   color: #f3e4e1;
 }
 
+.username-text {
+  font-family: "PT Serif", serif;
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.email-text {
+  font-family: "Work Sans", sans-serif;
+  font-size: 14px;
+  margin-bottom: 70px;
+}
+
 #text-profile {
   font-family: "PT Serif", serif;
   font-size: 22px;

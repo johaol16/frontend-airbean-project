@@ -94,9 +94,6 @@ function Menu() {
             }) }
         </ul>
 
-        <p id="total">Total..............</p> 
-        <p id="moms">Inkl moms + drönarleverans</p>
-
         <button id="pay" onClick={ handlePay }>Take my money!</button>
       </Modal>
 

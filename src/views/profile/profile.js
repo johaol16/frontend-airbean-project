@@ -3,14 +3,15 @@ import profile from '../../assets/profile.png'
 
 import Header from '../../components/header'
 import History from '../../components/History'
-import { UserContext } from '../../App.js'
-
+import { UserContext, EmailContext } from '../../App.js'
 
 import { useContext } from 'react'
 
 function Profile() {
 
   const username = useContext(UserContext)
+  const email = useContext(EmailContext); //
+  
 
 
   return (
@@ -19,7 +20,9 @@ function Profile() {
     <div id="profile">
     <img src={profile} alt="Profilbild"/>
 
-    <h3 className="profile-text">{ username }</h3>
+    <h3 className="username-text">{ username }</h3>
+    <h3 className="email-text">{ email }</h3>
+
 
     <h2 id="text-profile">Orderhistorik</h2>
 

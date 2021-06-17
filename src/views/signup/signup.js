@@ -7,9 +7,10 @@ import { useHistory } from 'react-router-dom'
 import Header from '../../components/header'
 
 const UserContext = createContext(undefined)
+const EmailContext = createContext(undefined)//
 
 
-function Signup({update}) {
+function Signup({update, updateEmail}) {
   const [newName, setNewName] = useState('')
   const [newEmail, setNewEmail] = useState('')
 
@@ -39,6 +40,7 @@ function Signup({update}) {
       .then(result => {
       console.log('Success:', result)
       update(newName)
+      updateEmail(newEmail)
       history.push("/profile")
    })
       .catch(error => {
@@ -75,4 +77,4 @@ function Signup({update}) {
 }
 
 
-export {Signup, UserContext}
+export {Signup, UserContext, EmailContext}
